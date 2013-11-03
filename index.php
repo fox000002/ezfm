@@ -18,7 +18,8 @@
         <tbody>
         </tbody>
     </table>
-    <p><button id="download" class="btn btn-primary" type="button">Download EasyFM Today</button></p>  
+    <div><input type="text" id="prev" placeholder="prev"></div>
+    <div><button id="download" class="btn btn-primary" type="button">Download EasyFM Today</button></div>  
     <p><div class='result'></div></p>
     <script src="../jquery.js"></script>
     <script src="../bootstrap/js/bootstrap.min.js"></script>
@@ -37,8 +38,9 @@
             };
 	   */
            $('#download').on('click', function(e) {
-               console.log('download');  
-               $.get('./download.php', function(data) {
+               console.log('download');
+               var prev_days = document.getElementById("prev").value;
+               $.get('./download.php?prev=' + prev_days, function(data) {
                   $('.result').html(data);
                   console.log('Load was performed.');
                }); 

@@ -36,9 +36,18 @@ def main():
     url_base = "http://mod.cri.cn/eng/ez/morning/2013/"
     file_ext = ".mp3"
 
-    from datetime import date
+    import sys
+    import getopt
+
+    previous = 0
+    if len(sys.argv) > 1:
+        previous = int(sys.argv[1])
+
+    print previous
+    from datetime import date, timedelta
     today = date.today()
-    filename = today.strftime("%m%d")
+    target_date = today - timedelta(days=previous)
+    filename = target_date.strftime("%m%d")
 
     print filename
 
