@@ -63,7 +63,7 @@
         $.getJSON('./getdata.php').done(function (data) {
             //console.log(data);
             $.each(data.programs, function () {
-                $('#table_div > tbody:last').append('<tr><td>'
+                $('#table_div > tbody:first').before('<tr><td>'
                         + this.ID
                         + '</td><td><a href=\"' + this.Name + "\">"
                         + this.Name + '</a></td><td>' + this.Date
